@@ -79,10 +79,10 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="button1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q5J-PO-VRL"/>
+                                                            <action selector="getAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tUd-dm-B6P"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEt-Cn-1Ra">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEt-Cn-1Ra">
                                                         <rect key="frame" x="174" y="0.0" width="114" height="79"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="56"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -90,7 +90,7 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="button2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YjR-ej-HQH"/>
+                                                            <action selector="getAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LSJ-cT-OR1"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -98,7 +98,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="3I0-zl-7cu">
                                                 <rect key="frame" x="0.0" y="129" width="288" height="79"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48U-I2-vbq">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48U-I2-vbq">
                                                         <rect key="frame" x="0.0" y="0.0" width="114" height="79"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="56"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,10 +106,10 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="button3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bom-ch-jkx"/>
+                                                            <action selector="getAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E0M-Yq-7gD"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STh-6N-8Lu">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STh-6N-8Lu">
                                                         <rect key="frame" x="174" y="0.0" width="114" height="79"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="56"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -117,7 +117,7 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="button4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ofn-lp-UV8"/>
+                                                            <action selector="getAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IWU-Go-CkH"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -140,15 +140,15 @@
                     <navigationItem key="navigationItem" id="jU3-EO-AYk"/>
                     <connections>
                         <outlet property="bg" destination="8bC-Xf-vdC" id="QHK-CV-Kdx"/>
-                        <outlet property="btn0" destination="MhH-my-dO3" id="QCa-A0-u4H"/>
-                        <outlet property="btn1" destination="iEt-Cn-1Ra" id="7Nb-rm-Oum"/>
-                        <outlet property="btn2" destination="48U-I2-vbq" id="LT0-eH-NcX"/>
-                        <outlet property="btn3" destination="STh-6N-8Lu" id="HEb-S8-s96"/>
                         <outlet property="labelSetRounds" destination="ESB-MT-2h2" id="EFo-Kz-Kzs"/>
                         <outlet property="pickerNumRounds" destination="vhd-nd-SUT" id="eNp-kY-Oyh"/>
                         <outlet property="progressView" destination="Oyt-d2-dre" id="gG2-wr-k4b"/>
                         <outlet property="roundNumText" destination="kMD-g1-0Rc" id="N1j-CK-Cms"/>
                         <outlet property="task" destination="rYD-3f-SLJ" id="gF7-31-HG9"/>
+                        <outletCollection property="btnsUI" destination="MhH-my-dO3" collectionClass="NSMutableArray" id="beP-Qa-YO4"/>
+                        <outletCollection property="btnsUI" destination="iEt-Cn-1Ra" collectionClass="NSMutableArray" id="DzR-C8-LrN"/>
+                        <outletCollection property="btnsUI" destination="48U-I2-vbq" collectionClass="NSMutableArray" id="esD-uE-plw"/>
+                        <outletCollection property="btnsUI" destination="STh-6N-8Lu" collectionClass="NSMutableArray" id="jRw-n4-gs9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
