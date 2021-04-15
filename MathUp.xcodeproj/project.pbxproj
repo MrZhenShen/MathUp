@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		24FC21BA25D54FB5002B1C4B /* ZhenShen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhenShen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24FC21BA25D54FB5002B1C4B /* MathUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FC21BD25D54FB5002B1C4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24FC21BF25D54FB5002B1C4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		24FC21C125D54FB5002B1C4B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		24FC21BB25D54FB5002B1C4B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24FC21BA25D54FB5002B1C4B /* ZhenShen.app */,
+				24FC21BA25D54FB5002B1C4B /* MathUp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,9 +113,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		24FC21B925D54FB5002B1C4B /* ZhenShen */ = {
+		24FC21B925D54FB5002B1C4B /* MathUp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24FC21CE25D54FB6002B1C4B /* Build configuration list for PBXNativeTarget "ZhenShen" */;
+			buildConfigurationList = 24FC21CE25D54FB6002B1C4B /* Build configuration list for PBXNativeTarget "MathUp" */;
 			buildPhases = (
 				24FC21B625D54FB5002B1C4B /* Sources */,
 				24FC21B725D54FB5002B1C4B /* Frameworks */,
@@ -125,9 +125,9 @@
 			);
 			dependencies = (
 			);
-			name = ZhenShen;
+			name = MathUp;
 			productName = ZhenShen;
-			productReference = 24FC21BA25D54FB5002B1C4B /* ZhenShen.app */;
+			productReference = 24FC21BA25D54FB5002B1C4B /* MathUp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -157,7 +157,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				24FC21B925D54FB5002B1C4B /* ZhenShen */,
+				24FC21B925D54FB5002B1C4B /* MathUp */,
 			);
 		};
 /* End PBXProject section */
@@ -375,7 +375,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24FC21CE25D54FB6002B1C4B /* Build configuration list for PBXNativeTarget "ZhenShen" */ = {
+		24FC21CE25D54FB6002B1C4B /* Build configuration list for PBXNativeTarget "MathUp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24FC21CF25D54FB6002B1C4B /* Debug */,
