@@ -13,11 +13,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var task: UILabel!
 
-    @IBOutlet weak var btn0: UIButton!
-    @IBOutlet weak var btn1: UIButton!
-    @IBOutlet weak var btn2: UIButton!
-    @IBOutlet weak var btn3: UIButton!
-//    var btnsUI: [UIButton] { return [btn0, btn1, btn2, btn3] }
     @IBOutlet var btnsUI: [UIButton]!
     
     @IBOutlet weak var labelSetRounds: UILabel!
@@ -88,11 +83,6 @@ protocol GameComplexity: class { // GameComplexityManager
 }
 
 protocol GamePlay {
-//    func button1(_ sender: Any)
-//    func button2(_ sender: Any)
-//    func button3(_ sender: Any)
-//    func button4(_ sender: Any)
-    
     func getAnswer(_ sender: UIButton)
 }
 
@@ -162,10 +152,4 @@ extension ViewController: GamePlay{
     @IBAction func getAnswer(_ sender: UIButton) {
         play(sender.tag)
     }
-
-    
-//    @IBAction func button1(_ sender: Any) { play(0) }
-//    @IBAction func button2(_ sender: Any) { play(1) }
-//    @IBAction func button3(_ sender: Any) { play(2) }
-//    @IBAction func button4(_ sender: Any) { play(3) }
 }

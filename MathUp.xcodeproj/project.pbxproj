@@ -42,7 +42,7 @@
 		24FC21B125D54FB5002B1C4B = {
 			isa = PBXGroup;
 			children = (
-				24FC21BC25D54FB5002B1C4B /* ZhenShen */,
+				24FC21BC25D54FB5002B1C4B /* MathUp */,
 				24FC21BB25D54FB5002B1C4B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,7 +55,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		24FC21BC25D54FB5002B1C4B /* ZhenShen */ = {
+		24FC21BC25D54FB5002B1C4B /* MathUp */ = {
 			isa = PBXGroup;
 			children = (
 				24FC21CB25D54FB6002B1C4B /* Info.plist */,
@@ -65,7 +65,7 @@
 				CE8D2ADE2615B8FE00651200 /* View */,
 				CE8D2ADF2615B92200651200 /* Other */,
 			);
-			path = ZhenShen;
+			path = MathUp;
 			sourceTree = "<group>";
 		};
 		CE8D2AD32615B4A400651200 /* Model */ = {
@@ -332,7 +332,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LBD5QA5FVG;
-				INFOPLIST_FILE = ZhenShen/Info.plist;
+				INFOPLIST_FILE = MathUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -351,7 +351,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LBD5QA5FVG;
-				INFOPLIST_FILE = ZhenShen/Info.plist;
+				INFOPLIST_FILE = MathUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
