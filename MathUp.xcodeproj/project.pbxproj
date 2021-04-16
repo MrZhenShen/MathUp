@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		24FC21BE25D54FB5002B1C4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FC21BD25D54FB5002B1C4B /* AppDelegate.swift */; };
-		24FC21C025D54FB5002B1C4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FC21BF25D54FB5002B1C4B /* SceneDelegate.swift */; };
 		24FC21C225D54FB5002B1C4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FC21C125D54FB5002B1C4B /* ViewController.swift */; };
 		24FC21C525D54FB5002B1C4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24FC21C325D54FB5002B1C4B /* Main.storyboard */; };
 		24FC21C725D54FB6002B1C4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24FC21C625D54FB6002B1C4B /* Assets.xcassets */; };
@@ -19,7 +18,6 @@
 /* Begin PBXFileReference section */
 		24FC21BA25D54FB5002B1C4B /* MathUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FC21BD25D54FB5002B1C4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		24FC21BF25D54FB5002B1C4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		24FC21C125D54FB5002B1C4B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		24FC21C425D54FB5002B1C4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24FC21C625D54FB6002B1C4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				24FC21BD25D54FB5002B1C4B /* AppDelegate.swift */,
-				24FC21BF25D54FB5002B1C4B /* SceneDelegate.swift */,
 			);
 			path = AppDelegete;
 			sourceTree = "<group>";
@@ -182,7 +179,6 @@
 			files = (
 				24FC21C225D54FB5002B1C4B /* ViewController.swift in Sources */,
 				24FC21BE25D54FB5002B1C4B /* AppDelegate.swift in Sources */,
-				24FC21C025D54FB5002B1C4B /* SceneDelegate.swift in Sources */,
 				CE8D2ADA2615B52E00651200 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
