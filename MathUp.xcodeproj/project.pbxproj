@@ -56,14 +56,22 @@
 		24FC21BC25D54FB5002B1C4B /* MathUp */ = {
 			isa = PBXGroup;
 			children = (
-				24FC21CB25D54FB6002B1C4B /* Info.plist */,
 				CE8D2ADC2615B8BC00651200 /* AppDelegete */,
-				CE8D2AD32615B4A400651200 /* Model */,
 				CE8D2AE52615C9FE00651200 /* Screens */,
 				CE8D2ADE2615B8FE00651200 /* View */,
-				CE8D2ADF2615B92200651200 /* Other */,
+				CE8D2AD32615B4A400651200 /* Model */,
+				CE8D2ADF2615B92200651200 /* Resources */,
+				8F7FC4E226297467005FBA9F /* SupportingFiles */,
 			);
 			path = MathUp;
+			sourceTree = "<group>";
+		};
+		8F7FC4E226297467005FBA9F /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				24FC21CB25D54FB6002B1C4B /* Info.plist */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		CE8D2AD32615B4A400651200 /* Model */ = {
@@ -90,13 +98,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		CE8D2ADF2615B92200651200 /* Other */ = {
+		CE8D2ADF2615B92200651200 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				24FC21C825D54FB6002B1C4B /* LaunchScreen.storyboard */,
 				24FC21C625D54FB6002B1C4B /* Assets.xcassets */,
 			);
-			path = Other;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		CE8D2AE52615C9FE00651200 /* Screens */ = {
@@ -328,7 +336,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LBD5QA5FVG;
-				INFOPLIST_FILE = MathUp/Info.plist;
+				INFOPLIST_FILE = MathUp/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -347,7 +355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LBD5QA5FVG;
-				INFOPLIST_FILE = MathUp/Info.plist;
+				INFOPLIST_FILE = MathUp/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
