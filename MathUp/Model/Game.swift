@@ -7,24 +7,88 @@
 
 import Foundation
 
-class Game{ // Model
-    static var firstNum: Int!, secondNum: Int!
-    static var correctAnswer: Int!
+class Game {
     
-    static var btnValueSet: [Int]!
-    static var correctBtnAnswer: Int!
+    // MARK: - Constants
     
-    static var roundsAmount: Int = 5
-    static var currentRound: Int = 0
+    private let operandRange = 0..<50
+    private let answerRange = 0..<100
+    private var answersArrayRange: Range<Int> {
+        0..<answersAmount
+    }
     
-    init(firstNum:Int, secondNum:Int, btnSet: [Int], correctBtnAnswer:Int) {
-        Game.firstNum = firstNum
-        Game.secondNum = secondNum
-
-        Game.correctAnswer = Game.firstNum + Game.secondNum
+    // MARK: - Game config
+    
+    private var roundsAmount: Int = 5
+    private var answersAmount = 4
+    
+    // MARK: - Round values
+    
+    private(set) var currentRound = -1
+    private(set) var answers = [Int]()
+    private var firstNumber = 0
+    private var secondNumber = 0
+    
+    private var correctAnswer: Int {
+        firstNumber + secondNumber
+    }
+    
+    // TODO: - Would be perfect to have other operations except +
+    var currentTask: String {
+        "\(firstNumber) + \(secondNumber)"
+    }
+    
+    // MARK: - State
+    
+    enum GameState {
+        case notStarted
+        case inProgress
+        case finished
+    }
+    
+    var currentState: GameState {
+        switch currentRound {
+        case -1:
+            return .notStarted
+            
+        case roundsAmount - 1:
+            return .finished
+            
+        default:
+            return .inProgress
+        }
+    }
+    
+    // MARK: - Main logic
+    
+    func setRoundsCount(with value: Int) {
+        self.roundsAmount = value
+    }
+    
+    func startNextRound() {
+        firstNumber = generateRandomNumber(in: operandRange)
+        secondNumber = generateRandomNumber(in: operandRange)
         
-        Game.btnValueSet = btnSet
+        answers.removeAll()
+        for _ in 0..<answersAmount {
+            answers.append(generateRandomNumber(in: answerRange))
+        }
         
-        Game.correctBtnAnswer = correctBtnAnswer
+        let correctAnswerIndex = generateRandomNumber(in: answersArrayRange)
+        answers[correctAnswerIndex] = correctAnswer
+        
+        currentRound += 1
+    }
+    
+    func checkResult(for index: Int) -> Bool {
+        answers[index] == correctAnswer
+    }
+    
+    func reset() {
+        currentRound = -1
+    }
+    
+    private func generateRandomNumber(in range: Range<Int>) -> Int {
+        Int.random(in: range)
     }
 }

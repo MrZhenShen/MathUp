@@ -11,7 +11,7 @@
         <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ZhenShen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="MathUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,6 +56,10 @@
                                                 <rect key="frame" x="131" y="0.0" width="259" height="150"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="v9I-Nq-rC7"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="iuL-7P-pdb"/>
+                                                </connections>
                                             </pickerView>
                                         </subviews>
                                         <constraints>
@@ -79,7 +83,7 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="getAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tUd-dm-B6P"/>
+                                                            <action selector="handleAnswerPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tS3-0k-lIh"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEt-Cn-1Ra">
@@ -90,7 +94,7 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="getAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LSJ-cT-OR1"/>
+                                                            <action selector="handleAnswerPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Myd-cy-ydq"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -106,7 +110,7 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="getAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E0M-Yq-7gD"/>
+                                                            <action selector="handleAnswerPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D3r-vd-4dM"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STh-6N-8Lu">
@@ -117,7 +121,7 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="getAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IWU-Go-CkH"/>
+                                                            <action selector="handleAnswerPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WDG-I2-6sl"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -139,16 +143,15 @@
                     <tabBarItem key="tabBarItem" title="Item" id="dOO-xQ-Aws"/>
                     <navigationItem key="navigationItem" id="jU3-EO-AYk"/>
                     <connections>
-                        <outlet property="bg" destination="8bC-Xf-vdC" id="QHK-CV-Kdx"/>
-                        <outlet property="labelSetRounds" destination="ESB-MT-2h2" id="EFo-Kz-Kzs"/>
-                        <outlet property="pickerNumRounds" destination="vhd-nd-SUT" id="eNp-kY-Oyh"/>
+                        <outlet property="currentRoundLabel" destination="kMD-g1-0Rc" id="TYM-N1-9e9"/>
                         <outlet property="progressView" destination="Oyt-d2-dre" id="gG2-wr-k4b"/>
-                        <outlet property="roundNumText" destination="kMD-g1-0Rc" id="N1j-CK-Cms"/>
-                        <outlet property="task" destination="rYD-3f-SLJ" id="gF7-31-HG9"/>
-                        <outletCollection property="btnsUI" destination="MhH-my-dO3" collectionClass="NSMutableArray" id="beP-Qa-YO4"/>
-                        <outletCollection property="btnsUI" destination="iEt-Cn-1Ra" collectionClass="NSMutableArray" id="DzR-C8-LrN"/>
-                        <outletCollection property="btnsUI" destination="48U-I2-vbq" collectionClass="NSMutableArray" id="esD-uE-plw"/>
-                        <outletCollection property="btnsUI" destination="STh-6N-8Lu" collectionClass="NSMutableArray" id="jRw-n4-gs9"/>
+                        <outlet property="roundsCountPicker" destination="vhd-nd-SUT" id="ldB-7N-Pbr"/>
+                        <outlet property="setRoundsLabel" destination="ESB-MT-2h2" id="T7J-H8-0Ee"/>
+                        <outlet property="taskLabel" destination="rYD-3f-SLJ" id="3jY-tk-IkB"/>
+                        <outletCollection property="answerButtons" destination="MhH-my-dO3" collectionClass="NSMutableArray" id="utO-Fq-Mvp"/>
+                        <outletCollection property="answerButtons" destination="iEt-Cn-1Ra" collectionClass="NSMutableArray" id="YBW-6u-445"/>
+                        <outletCollection property="answerButtons" destination="48U-I2-vbq" collectionClass="NSMutableArray" id="U60-t8-sHy"/>
+                        <outletCollection property="answerButtons" destination="STh-6N-8Lu" collectionClass="NSMutableArray" id="wwq-4v-AzD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
