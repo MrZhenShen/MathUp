@@ -9,6 +9,10 @@ import Foundation
 
 class Game {
     
+    // MARK: - Data array
+
+    private var roundsData: [GameRoundData] = []
+    
     // MARK: - Constants
     
     private let operandRange = 0..<50
@@ -24,7 +28,7 @@ class Game {
     
     // MARK: - Round values
     
-    private(set) var currentRound = -1
+    private(set) var currentRound = 0
     private(set) var answers = [Int]()
     private var firstNumber = 0
     private var secondNumber = 0
@@ -48,10 +52,10 @@ class Game {
     
     var currentState: GameState {
         switch currentRound {
-        case -1:
+        case 0:
             return .notStarted
             
-        case roundsAmount - 1:
+        case roundsAmount:
             return .finished
             
         default:
@@ -85,10 +89,24 @@ class Game {
     }
     
     func reset() {
-        currentRound = -1
+        currentRound = 0
     }
     
     private func generateRandomNumber(in range: Range<Int>) -> Int {
         Int.random(in: range)
+    }
+    
+    // MARK: - Rounds Data processing
+    
+    func updateRoundsData(for index: Int) {
+        roundsData.append(GameRoundData(roundNumber: currentRound, task: currentTask, correctAnswer: correctAnswer, userAnswer: answers[index], roundTime: "XX:XX:XX"))
+    }
+    
+    func getRoundsData() -> [GameRoundData] {
+        return roundsData
+    }
+    
+    func clearRoundsData() {
+        roundsData = []
     }
 }

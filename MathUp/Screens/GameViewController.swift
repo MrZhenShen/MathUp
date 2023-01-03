@@ -8,20 +8,24 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    
+    // MARK: - Delegates
+    
+    var roundsDataDelegate: StatisticViewControllerDelegate?
 
     // MARK: - Outlets
     
     @IBOutlet private var answerButtons: [UIButton]!
     @IBOutlet private var taskLabel: UILabel!
     @IBOutlet private var progressView: UIProgressView!
-    @IBOutlet private var setRoundsLabel: UILabel!
     @IBOutlet private var currentRoundLabel: UILabel!
-    @IBOutlet private var roundsCountPicker: UIPickerView!
-    
+    @IBOutlet weak var settingsButton: UIButton!
+
     // MARK: - Model
     
     private let game = Game()
     private var gameProgress = Progress(totalUnitCount: 0)
+    private var roundsDataArray: [GameRoundData] = []
     
     private var roundsNumberRange: [Int] {
         let roundsMinimalValue = 5
@@ -33,14 +37,26 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupUI()
         setInitialRoundsNumber()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
     
     private func setInitialRoundsNumber() {
         if let minimalRoundsNumber = roundsNumberRange.first {
             game.setRoundsCount(with: minimalRoundsNumber)
             gameProgress.totalUnitCount = Int64(minimalRoundsNumber)
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowSettings" {
+            if let settingsModalViewController = segue.destination as? SettingsModalViewController {
+                settingsModalViewController.roundsNumberDelegate = self
+            }
         }
     }
 }
@@ -64,10 +80,14 @@ private extension GameViewController {
         case .inProgress:
             // TODO: - That's where you can update user score
             checkUserAnswer(for: index)
+            game.updateRoundsData(for: index)
+            
             startNextRound()
 
         case .finished:
             // TODO: Would be really nice to show user result here
+            game.updateRoundsData(for: index)
+            roundsDataDelegate?.sendRoundsDataToTableViewController(game.getRoundsData())
             resetScene()
             game.reset()
         }
@@ -82,7 +102,7 @@ private extension GameViewController {
     
     func startGame() {
         setCurrentRoundLabelVisibility(isVisible: true)
-        setRoundNumberPickerVisibility(isVisible: false)
+        setSettingsIconVisibility(isVisible: false)
         startNextRound()
     }
     
@@ -109,6 +129,12 @@ private extension GameViewController {
 private extension GameViewController {
     func setupUI() {
         answerButtons.forEach { $0.addActionButtonShadow() }
+        
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .light, scale: .large)
+
+        let largeBoldDoc = UIImage(systemName: "gearshape", withConfiguration: largeConfig)
+
+        settingsButton.setImage(largeBoldDoc, for: .normal)
     }
     
     func resetScene() {
@@ -116,37 +142,36 @@ private extension GameViewController {
         taskLabel.text = "One more try??"
         view.backgroundColor = StyleManager.defaultBackground
         setCurrentRoundLabelVisibility(isVisible: false)
-        setRoundNumberPickerVisibility(isVisible: true)
-    }
-    
-    func setRoundNumberPickerVisibility(isVisible: Bool) {
-        setRoundsLabel.isHidden = !isVisible
-        roundsCountPicker.isHidden = !isVisible
+        setSettingsIconVisibility(isVisible: true)
     }
     
     func setCurrentRoundLabelVisibility(isVisible: Bool) {
         currentRoundLabel.isHidden = !isVisible
     }
+    
+    func setSettingsIconVisibility(isVisible: Bool) {
+        settingsButton.isHidden = !isVisible
+    }
 }
 
-// MARK: - UIPickerViewDataSource + UIPickerViewDelegate
+// MARK: - Statistics View Controller Delegate
 
-extension GameViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
-    }
+extension GameViewController: StatisticViewControllerDelegate {
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        roundsNumberRange.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        String(roundsNumberRange[row])
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let roundsNumber = roundsNumberRange[row]
-        game.setRoundsCount(with: roundsNumber)
-        gameProgress.totalUnitCount = Int64(roundsNumber)
+    func sendRoundsDataToTableViewController(_ data: [GameRoundData]) {}
+
+    func clearRoundsData() {
+        game.clearRoundsData()
     }
 }
+
+// MARK: - Modal View Controller Delegate
+
+extension GameViewController: ApplySettingsDelegate{
+    func setRoundsAmount(_ quantityRounds: Int) {
+        
+        game.setRoundsCount(with: quantityRounds)
+        gameProgress.totalUnitCount = Int64(quantityRounds)
+    }
+}
+
